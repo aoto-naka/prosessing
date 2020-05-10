@@ -3,24 +3,15 @@ int mass = 1; // 直線の数
 float tmp;
 int countMax = 2; // そのmassでの繰り返し数上弦
 int count = 0; //そのmassでの繰り返し数
-boolean gifGen = false; // gifファイルを生成するかどうか
 
 float circleSize = 20; // 小さい動く円の大きさ
 int timer = 0;
-
-import gifAnimation.*;
-GifMaker gifExport;
 
 void setup(){
   size(900, 900);
   textSize(20);
   frameRate(50);
-  if(gifGen){
-    gifExport = new GifMaker(this, "cycles.gif"); // GifMakerオブジェクトを作る、第2引数にファイル名
-    gifExport.setRepeat(0); // エンドレス再生
-    gifExport.setQuality(10); // クオリティ(デフォルト10)
-    gifExport.setDelay(20); // アニメーションの間隔を20ms(50fps)に
-  }
+  
 }
 
 void draw(){
@@ -59,12 +50,7 @@ void draw(){
     }
     println(count);
   }
-  if(gifGen){
-    gifExport.addFrame();
-  }
-  if(mass >= 9 && gifGen){
-    gifExport.finish();
-  }
+
 }
 
 void keyPressed(){
