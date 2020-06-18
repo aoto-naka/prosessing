@@ -47,6 +47,7 @@ void draw(){
     else{
       count = 0;
       mass ++;
+      if(mass >= 9) mass = 1;
     }
     println(count);
   }
